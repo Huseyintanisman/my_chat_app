@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Hello_chat",
+      title: "Hello_chatt",
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       home:  LandingPage(authServices: FireBaseAuthServices(),),
