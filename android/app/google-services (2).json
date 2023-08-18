@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "356596888356",
+    "project_id": "windows-proje-4416",
+    "storage_bucket": "windows-proje-4416.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356596888356:android:6958008eab56d8e25eb9b1",
+        "android_client_info": {
+          "package_name": "com.example.app_huso"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356596888356-c9br608p5h3lqdm4thp0ljrici09b9a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByo9s2RNlC3qFN-0E3kJI0FwBiwi-AghU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356596888356-c9br608p5h3lqdm4thp0ljrici09b9a0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "356596888356-3vdsnvvckb9331elo1mvbbkfq54mtpsi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.appHuso"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356596888356:android:7271ec7cdd8588915eb9b1",
+        "android_client_info": {
+          "package_name": "com.example.hello_chat_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356596888356-c9br608p5h3lqdm4thp0ljrici09b9a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByo9s2RNlC3qFN-0E3kJI0FwBiwi-AghU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356596888356-c9br608p5h3lqdm4thp0ljrici09b9a0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "356596888356-3vdsnvvckb9331elo1mvbbkfq54mtpsi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.appHuso"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356596888356:android:d15c9345cd804b345eb9b1",
+        "android_client_info": {
+          "package_name": "com.example.msgapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356596888356-c9br608p5h3lqdm4thp0ljrici09b9a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByo9s2RNlC3qFN-0E3kJI0FwBiwi-AghU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356596888356-c9br608p5h3lqdm4thp0ljrici09b9a0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "356596888356-3vdsnvvckb9331elo1mvbbkfq54mtpsi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.appHuso"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
