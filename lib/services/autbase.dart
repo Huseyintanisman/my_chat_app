@@ -1,10 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:msgapp/model/user_model.dart';
 
 abstract class AuthBase {
 
-  Future<User?> currentuser();
-  Future<Userr> signInanonymously();
-  Future<bool> signOut();
+  Future<MyUser?> currentuser();
+  Future<MyUser?> signInanonymously();
+  Future<bool?> signOut();
 
 }

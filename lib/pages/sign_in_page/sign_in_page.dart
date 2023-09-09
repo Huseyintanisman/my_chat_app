@@ -1,28 +1,24 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:msgapp/model/user_model.dart';
+import 'package:msgapp/pages/sign_in_page/sign_in_widgets.dart';
 import 'package:msgapp/services/autbase.dart';
-import 'package:msgapp/pages/sign_in_page/sign_in_widgets.dart'; 
 
 class SignInPage extends StatelessWidget {
-  final Function(User) onSignin;
-  final AuthBase authservices;
+  final Function(MyUser?) onSignIn;
+  final AuthBase authService;
 
   const SignInPage({
     Key? key,
-    required this.onSignin,
-    required this.authservices,
+    required this.onSignIn,
+    required this.authService,
   }) : super(key: key);
 
-  void _anonymoususer() async {
-  try {
-    Userr _user = await authservices.signInanonymously();
-    onSignin(_user as User); // Userr'ı User'a dönüştür
-    print("User Sign in ${_user.userID}");
-  } catch (e) {
-    print("Anonymous Sign In Error: $e");
+  void _misafirGirisi() async {
+    MyUser? _user = await authService.signInanonymously();
+    onSignIn(_user);
+    print("oturum acan user id" + _user!.userID.toString());
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -80,9 +76,9 @@ class SignInPage extends StatelessWidget {
               buttonText: "Sign In Anonymous",
               buttonIcon: const Icon(Icons.supervised_user_circle),
               buttonColor: const Color.fromARGB(255, 40, 40, 40),
-              onPressed: _anonymoususer,
+              onPressed: _misafirGirisi,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
           ],
         ),
       ),

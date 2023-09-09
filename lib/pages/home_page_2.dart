@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:msgapp/services/autbase.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:msgapp/model/user_model.dart';
+import 'package:msgapp/services/autbase.dart';
 
-class HomePage extends StatelessWidget {
-  final AuthBase authservices;
-  final VoidCallback onSignOut;
-  final User? user;
+class HomePage2 extends StatelessWidget {
+  final Function onSignOut;
+  final AuthBase authService;
+  final MyUser user;
 
-  HomePage({
-    Key? key,
-    required this.onSignOut,
-    required this.user,
-    required this.authservices,
-  }) : super(key: key);
+  HomePage2({Key? key, required this.onSignOut, required this.authService, required this.user})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +21,7 @@ class HomePage extends StatelessWidget {
             Positioned.fill(
               child: Container(),
             ),
-            Positioned(
+            const Positioned(
               top: 100,
               left: 50,
               child: Text(
@@ -40,8 +37,8 @@ class HomePage extends StatelessWidget {
               top: 500,
               left: 50,
               child: Text(
-                "User '${user?.uid}'",
-                style: TextStyle(
+                "Oturum Açan User ID ${user.userID}",
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 22,
                   fontFamily: "italic",
@@ -53,15 +50,15 @@ class HomePage extends StatelessWidget {
               right: 20,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text("Start"),
+                child: const Text("Start"),
               ),
             ),
             Positioned(
               top: 10,
               left: 10,
               child: TextButton(
-                onPressed: _signOut,
-                child: Text("Sign Out"),
+                onPressed:_cikisYap,
+                child: const Text("Sign Out"),
               ),
             ),
           ],
@@ -70,12 +67,9 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Future<void> _signOut() async {
-    try {
-      await authservices.signOut();
-      onSignOut();
-    } catch (e) {
-      print("Sign Out Error: $e");
-    }
+  Future<bool?> _cikisYap() async {
+    bool? sonuc = await authService.signOut();
+    onSignOut();
+    return sonuc;
   }
 }

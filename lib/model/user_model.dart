@@ -1,6 +1,6 @@
-class Userr{
+class MyUser{
 
-  final String userID;
+  String? userID;
 
-  Userr({required this.userID});
+  MyUser({required this.userID});
 }
