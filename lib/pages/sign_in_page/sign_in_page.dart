@@ -1,5 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:msgapp/gen/assets_gen.dart';
+import 'package:msgapp/helpers/size_helper.dart';
 import 'package:msgapp/model/user_model.dart';
 import 'package:msgapp/pages/sign_in_page/sign_in_widgets.dart';
 import 'package:msgapp/services/autbase.dart';
@@ -24,63 +25,100 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("MsgApp",
-            style: TextStyle(
-                fontFamily: "Staatliches",
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 32)),
+        title: const Text(
+          "MsgApp",
+          style: TextStyle(
+            fontFamily: "Staatliches",
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 32,
+          ),
+        ),
         elevation: 0,
         backgroundColor: const Color.fromARGB(255, 29, 32, 35),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            const Text(
-              "Sign In",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 32),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              height: 28,
-            ),
-            const SocialLogInWidget(
-              buttonText: "Sign In With Google",
-              buttonIcon: Icon(
-                Icons.g_mobiledata,
-                size: 38,
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(Assets.images.backgroundimage.path),
+                  fit: BoxFit.cover,
+                ),
               ),
-              buttonColor: Color.fromARGB(255, 255, 69, 69),
             ),
-            const SocialLogInWidget(
-              buttonText: "Sign In With FaceBook",
-              buttonIcon: Icon(
-                Icons.facebook,
-                size: 25,
+          ),
+          Center(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Color.fromARGB(255, 35, 33, 33).withOpacity(0.8),
               ),
-              buttonColor: Color(0xFF334D92),
+              height: context.height * 1,
+              width: context.width * 1,
+              child: Stack(
+                children: [],
+              ),
             ),
-            const SocialLogInWidget(
-              buttonText: "Sign In With e-Mail And Password",
-              buttonIcon: Icon(Icons.mail),
-              buttonColor: Color.fromARGB(255, 18, 141, 7),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              color: const Color.fromARGB(255, 38, 36, 36).withOpacity(0.7), 
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    const Text(
+                      "Sign In",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 32,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(
+                      height: 28,
+                    ),
+                    SocialLogInWidget(
+                      buttonText: "Sign In With Google",
+                      buttonIcon: Icon(
+                        Icons.g_mobiledata,
+                        size: 38,
+                      ),
+                      buttonColor: Color.fromARGB(255, 255, 69, 69),
+                    ),
+                    SocialLogInWidget(
+                      buttonText: "Sign In With FaceBook",
+                      buttonIcon: Icon(
+                        Icons.facebook,
+                        size: 25,
+                      ),
+                      buttonColor: Color(0xFF334D92),
+                    ),
+                    SocialLogInWidget(
+                      buttonText: "Sign In With e-Mail And Password",
+                      buttonIcon: Icon(Icons.mail),
+                      buttonColor: Color.fromARGB(255, 18, 141, 7),
+                    ),
+                    SocialLogInWidget(
+                      buttonText: "Sign In Anonymous",
+                      buttonIcon: Icon(Icons.supervised_user_circle),
+                      buttonColor: Color.fromARGB(255, 40, 40, 40),
+                      onPressed: _misafirGirisi,
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+                ),
+              ),
             ),
-            SocialLogInWidget(
-              buttonText: "Sign In Anonymous",
-              buttonIcon: const Icon(Icons.supervised_user_circle),
-              buttonColor: const Color.fromARGB(255, 40, 40, 40),
-              onPressed: _misafirGirisi,
-            ),
-            const SizedBox(height: 10),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

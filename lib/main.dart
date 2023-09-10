@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:msgapp/firebase_options.dart';
 import 'package:msgapp/pages/landing_page.dart';
-import 'package:msgapp/services/fake_auth_services.dart';
 import 'package:msgapp/services/firebase_auth_services.dart';
 
 void main() async {

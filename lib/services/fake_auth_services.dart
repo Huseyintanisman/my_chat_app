@@ -2,7 +2,7 @@ import 'package:msgapp/model/user_model.dart';
 import 'package:msgapp/services/autbase.dart';
 
 class FakeAuthenticationService implements AuthBase {
-  String userID = "123123123123123123";
+  String userID = "Hüseyin Tanişman";
 
   @override
   Future<MyUser> currentuser() async {

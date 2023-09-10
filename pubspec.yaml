@@ -63,3 +63,5 @@ flutter:
     - family: Staatliches
       fonts:
         - asset: assets/fonts/Staatliches-Regular.ttf
+  assets:
+    - assets/images/
