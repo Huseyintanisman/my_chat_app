@@ -34,8 +34,8 @@ class HomePage2 extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 500,
-              left: 50,
+              top: 200,
+              left: 60,
               child: Text(
                 "Oturum Açan User ID ${user.userID}",
                 style: const TextStyle(
