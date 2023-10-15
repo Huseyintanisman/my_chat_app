@@ -19,4 +19,9 @@ class FakeAuthenticationService implements AuthBase {
   Future<bool> signOut() {
     return Future.value(true);
   }
+  
+  @override
+  Future<MyUser?> signInWithGoogle() {
+    throw UnimplementedError();
+  }
 }

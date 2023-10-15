@@ -1,17 +1,15 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:msgapp/gen/assets_gen.dart';
 import 'package:msgapp/helpers/size_helper.dart';
 import 'package:msgapp/model/user_model.dart';
-import 'package:msgapp/pages/widgets/home_page_widgets.dart';
-import 'package:msgapp/services/autbase.dart';
+import 'package:msgapp/viewmodel/user_model.dart';
+import 'package:provider/provider.dart';
 
 class HomePage2 extends StatelessWidget {
-  final Function onSignOut;
-  final AuthBase authService;
+  
   final MyUser user;
 
-  HomePage2({Key? key, required this.onSignOut, required this.authService, required this.user})
+  HomePage2({Key? key,   required this.user})
       : super(key: key);
 
   @override
@@ -73,7 +71,7 @@ class HomePage2 extends StatelessWidget {
                     color: Color.fromARGB(255, 41, 38, 38),
                     width: 4.0),),
                   child: TextButton(
-                    onPressed: _cikisYap,
+                    onPressed: () => _cikisYap(context),
                   child: const Text("Çıkış Yap"),),),),
                 ],
               ),
@@ -143,9 +141,9 @@ class HomePage2 extends StatelessWidget {
     );
   }
 
-  Future<bool?> _cikisYap() async {
-    bool? sonuc = await authService.signOut();
-    onSignOut();
+  Future<bool?> _cikisYap(BuildContext context) async {
+    final _userModel = Provider.of<UserModel>(context, listen: false);
+    bool? sonuc = await _userModel.signOut();
     return sonuc;
   }
 }

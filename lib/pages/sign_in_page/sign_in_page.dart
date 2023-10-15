@@ -3,23 +3,21 @@ import 'package:msgapp/gen/assets_gen.dart';
 import 'package:msgapp/helpers/size_helper.dart';
 import 'package:msgapp/model/user_model.dart';
 import 'package:msgapp/pages/sign_in_page/sign_in_widgets.dart';
-import 'package:msgapp/services/autbase.dart';
+import 'package:msgapp/viewmodel/user_model.dart';
+import 'package:provider/provider.dart';
 
 class SignInPage extends StatelessWidget {
-  final Function(MyUser?) onSignIn;
-  final AuthBase authService;
 
-  const SignInPage({
-    Key? key,
-    required this.onSignIn,
-    required this.authService,
-  }) : super(key: key);
-
-  void _misafirGirisi() async {
-    MyUser? _user = await authService.signInanonymously();
-    onSignIn(_user);
+  void _misafirGirisi(BuildContext context) async {
+    final _userModel = Provider.of<UserModel>(context, listen: false);
+    MyUser? _user = await _userModel.signInanonymously();
     print("oturum acan user id" + _user!.userID.toString());
   }
+    void _googleIleGiris(BuildContext context) async{
+      final _userModel = Provider.of<UserModel>(context, listen: false);
+    MyUser? _user = await _userModel.signInWithGoogle();
+    print("oturum acan user id" + _user!.userID.toString());
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +90,7 @@ class SignInPage extends StatelessWidget {
                         size: 38,
                       ),
                       buttonColor: Color.fromARGB(255, 255, 69, 69),
+                      onPressed: () => _googleIleGiris(context),
                     ),
                     SocialLogInWidget(
                       buttonText: "Sign In With FaceBook",
@@ -110,7 +109,7 @@ class SignInPage extends StatelessWidget {
                       buttonText: "Sign In Anonymous",
                       buttonIcon: Icon(Icons.supervised_user_circle),
                       buttonColor: Color.fromARGB(255, 40, 40, 40),
-                      onPressed: _misafirGirisi,
+                      onPressed: () => _misafirGirisi(context),
                     ),
                     const SizedBox(height: 10),
                   ],
@@ -122,4 +121,6 @@ class SignInPage extends StatelessWidget {
       ),
     );
   }
+  
+  
 }
